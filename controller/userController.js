@@ -45,8 +45,8 @@ const registerUser = async (req, res) => {
 };
 
 const getAllUsers = async (req, res) => {
-    const {currentPage = 1, totalPage = 5} = req.query;
-    const limit = parseInt(totalPage);
+    const {currentPage = 1, limits = 5} = req.query;
+    const limit = parseInt(limits);
     const skip = (parseInt(currentPage) - 1) * limit;
     const users = await User.find({}).skip(skip).limit(limit);
     const totalUsers = await User.countDocuments({});

@@ -1,7 +1,4 @@
 const Product = require('../models/product');
-const User = require("../models/user");
-const {response} = require("express");
-const {all} = require("express/lib/application");
 
 const createProduct = async (req, res) => {
     try {
@@ -45,8 +42,8 @@ const deleteProduct = async (req, res) => {
 
 const getAllProduct = async (req, res) => {
     try {
-        const {currentPage = 1, totalPage = 10, sortBy = "title", order = "asc"} = req.query;
-        const limit = parseInt(totalPage);
+        const {currentPage = 1, limits = 10, sortBy = "title", order = "asc"} = req.query;
+        const limit = parseInt(limits);
         const skip = (parseInt(currentPage) - 1) * limit;
         const allows = ["publishedYear", "title"]
         const sortField = allows.indexOf(sortBy) ? sortBy : "title";

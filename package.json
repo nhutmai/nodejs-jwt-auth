@@ -1,9 +1,11 @@
 {
   "name": "session-auth-app",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "seed": "node seed/product.seed.js",
+    "keys": "node config/createKeyPair.js"
   },
   "keywords": [],
   "author": "",
@@ -13,12 +15,10 @@
     "connect-mongo": "^5.1.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.10.1",
     "mongoose-sequence": "^6.0.1",
     "passport": "^0.7.0",
-    "passport-jwt": "^4.0.1",
-    "passport-local": "^1.0.0"
+    "passport-jwt": "^4.0.1"
   }
 }
